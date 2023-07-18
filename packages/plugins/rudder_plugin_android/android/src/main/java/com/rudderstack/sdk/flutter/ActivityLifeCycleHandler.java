@@ -73,5 +73,7 @@ public class ActivityLifeCycleHandler implements Application.ActivityLifecycleCa
   public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {}
 
   @Override
-  public void onActivityDestroyed(@NonNull Activity activity) {}
+  public void onActivityDestroyed(@NonNull Activity activity) {
+    RudderSdkFlutterPlugin.rudderClient.track("Application Closed");
+  }
 }

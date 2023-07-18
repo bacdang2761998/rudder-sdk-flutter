@@ -32,7 +32,7 @@ public class ActivityLifeCycleHandler implements Application.ActivityLifecycleCa
         () -> {
           if (RudderSdkFlutterPlugin.trackLifeCycleEvents) {
             noOfActivities += 1;
-            if (noOfActivities == 1) {
+            if (noOfActivities == 0) {
               // no previous activity present. Application Opened
               RudderSdkFlutterPlugin.rudderClient.track("Application Opened");
             }
@@ -57,7 +57,7 @@ public class ActivityLifeCycleHandler implements Application.ActivityLifecycleCa
         () -> {
           if (RudderSdkFlutterPlugin.trackLifeCycleEvents) {
             noOfActivities -= 1;
-            if (noOfActivities == 0) {
+            if (noOfActivities == -2) {
               RudderSdkFlutterPlugin.rudderClient.track("Application Backgrounded");
             }
           }
